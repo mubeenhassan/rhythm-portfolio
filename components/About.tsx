@@ -1,6 +1,7 @@
 import { spaceItems } from "@/Data";
 import CountUp from "react-countup";
 import { TiPlus } from "react-icons/ti";
+import Button from "./Button";
 function About() {
   return (
     <div className="about w-full px-[30px] py-[90px] ">
@@ -33,6 +34,7 @@ function About() {
               Years Experience
             </p>
           </div>
+          <Button/>
         </div>
         <div className="basis-[48%] flex justify-center items-center">
           <div className="p-5">

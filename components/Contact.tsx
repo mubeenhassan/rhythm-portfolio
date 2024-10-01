@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+import SendButton from "./SendButton";
 import Image from "next/image";
 import face from '../public/images/portrait.png'
 
@@ -57,7 +57,7 @@ function Contact() {
     <div className="contact w-full mx-auto py-14">
       <div className="w-full max-[90%] mx-auto flex flex-col gap-5">
        <div className="max-w-[90%] mx-auto h-auto p-8 md:p-10">
-  <h1 className="text-[13vw] md:text-[145px] font-semibold mx-auto tracking-wider leading-none font-montreal transform scale-y-150 mb-12 text-start text-[var(--light)] dark:text-[var(--dark)]">
+  <h1 className="text-[13vw] md:text-[145px] font-semibold mx-auto tracking-wider leading-none font-montreal transform scale-y-[1.7] mb-12 text-start text-[var(--light)] dark:text-[var(--dark)]">
     LET’S GET IN
   </h1>
   
@@ -99,11 +99,11 @@ function Contact() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Message"
-              className={`bg-transparent outline-none border-b w-full py-5 text-[18px] resize-none ${
+              className={`bg-transparent outline-none border-b w-full py-5 text-[18px] resize-none mb-3 ${
                 errors.message ? "border-[#dc3232]" : "border-gray-700"
               }`}
             ></textarea>
-            <Button
+            <SendButton
               handleSubmit={handleSubmit}
               isLoading={isLoading}
               setIsLoading={setIsLoading}

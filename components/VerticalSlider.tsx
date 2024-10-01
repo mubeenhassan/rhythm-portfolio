@@ -26,7 +26,6 @@ const VerticalSlider: React.FC<VerticalSliderProps> = ({ changeTheme }) => {
     vertical: true,
     verticalSwiping: true,
     arrows: false,
-    pauseOnHover: true,
   };
   const { theme } = useTheme();
   return (

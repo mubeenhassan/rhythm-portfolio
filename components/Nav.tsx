@@ -2,10 +2,10 @@ import { Link } from "react-scroll";
 import { navItems } from "@/Data";
 
 interface NavProps {
-  otherclass?: string; // otherclass is an optional string prop
+  otherclass?: string; 
 }
 
-const Nav: React.FC<NavProps> = ({ otherclass = "" }) => {
+const Nav: React.FC<NavProps> = ({ otherclass=' '}) => {
   return (
     <nav >
       <ul className={`  ${otherclass}`}>

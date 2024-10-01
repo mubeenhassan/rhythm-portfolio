@@ -9,6 +9,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import ToggleButton from "./ToggleButton";
 import Nav from "./Nav";
 import NavIcon from "./NavIcon";
+import { useState } from "react";
+import { navItems } from "@/Data";
 
 interface NavbarProps {
   changeTheme: boolean;
@@ -16,8 +18,6 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
-  const { theme } = useTheme();
-
   return (
     <div className={`w-full   px-[30px] md:px-[60px] py-3 `}>
       {/* desktop */}
@@ -56,13 +56,34 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
                 className={`w-full h-[80%]  mt-[40px] bg-[url('/images/light/globe-light-menu.svg')] bg-cover bg-center dark:bg-[url('/images/dark/globe-dark-menu.svg')] `}
               >
                 <div className="absolute top-3 ">
-                  {theme === "dark" ? (
+                  {changeTheme ? (
                     <Image src={logo} alt="logo" priority />
                   ) : (
                     <Image src={light_logo} alt="logo" priority />
                   )}
                 </div>
-                <Nav otherclass="flex justify-center items-center gap-12 flex-col  mt-[120px] pt-[70px] font-semibold" />
+
+                {/* <Nav  otherclass="flex justify-center items-center gap-12 flex-col  mt-[120px] pt-[70px] font-semibold" /> */}
+
+                <nav>
+                  <ul >
+                    {navItems.map((item, i) => (
+                      <li
+                        className=" text-[19px] cursor-pointer dark:text-[var(--dark)] transition-all duration-500 hover:scale-[1.07]"
+                        key={i}
+                      >
+                        <Link
+                          className="font-medium font-montreal"
+                          to={item.link}
+                          smooth={true}
+                          duration={500}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
 
                 <div className="">
                   <Link
