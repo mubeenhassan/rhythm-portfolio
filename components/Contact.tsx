@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
-
+import Image from "next/image";
+import face from '../public/images/portrait.png'
 
 
 function Contact() {
@@ -54,12 +55,22 @@ function Contact() {
 
   return (
     <div className="contact w-full mx-auto py-14">
-      <div className="w-full max-[80%] mx-auto flex flex-col gap-5">
-        <div className="max-[80%] mx-auto justify-start items-start">
-          {/* <h1 className="text-[85px] max-w[90%] font-semibold mx-auto tracking-wider leading-none">
-            LET’S GET IN
-          </h1> */}
-        </div>
+      <div className="w-full max-[90%] mx-auto flex flex-col gap-5">
+       <div className="max-w-[90%] mx-auto h-auto p-8 md:p-10">
+  <h1 className="text-[13vw] md:text-[145px] font-semibold mx-auto tracking-wider leading-none font-montreal transform scale-y-150 mb-12 text-start text-[var(--light)] dark:text-[var(--dark)]">
+    LET’S GET IN
+  </h1>
+  
+  <h1 className="text-[13vw] md:text-[150px] mx-auto font-montreal transform scale-y-150 font-semibold capitalize relative mt-12">
+    TOUCH
+    <Image
+      src={face}
+      alt=""
+      className="absolute w-[8vw] h-[8vw] md:w-[105px] md:h-[105px] top-[5vw] left-[9vw] md:top-[55px] md:left-[93px] cursor-pointer"
+    />
+  </h1>
+</div>
+
         <div className="w-full max-w-[80%] mx-auto">
           <form  className="w-full mx-auto flex flex-col gap-4">
             <input
