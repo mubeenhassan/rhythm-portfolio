@@ -10,7 +10,7 @@ function Button() {
     type="button" 
     className={` px-4 py-3 outline-none text-[var(--dark)] dark:text-[var(--light)] bg-[var(--dark-bg)] dark:bg-[var(--light-bg)] text-[16px] font-semibold h-11 w-[180px] rounded transition-all duration-500 hover:scale-[1.03] `}
   >
-    Let's work togater
+    It&#39;s a great day!
   </button>
   </Link>
   )
