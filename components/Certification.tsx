@@ -21,7 +21,7 @@ const Certification: React.FC<CertificationProps> = ({ changeTheme }) => {
                 ):(
                     <Image src={star} alt="" />
                 )}
-                <h2 className="font-montreal font-semibold tracking-wider text-[20px] sm:text-[22px] text-[var(--light)] dark:text-[var(--dark)] -mt-[100px] w-auto text-center md:-mt-[0px]">Rhythm's certifications</h2>
+                <h2 className="font-montreal font-semibold tracking-wider text-[20px] sm:text-[22px] text-[var(--light)] dark:text-[var(--dark)] -mt-[100px] w-auto text-center md:-mt-[0px]">Rhythm&apos;s certifications</h2>
                 {changeTheme?(
                     <Image src={star} alt=""/>
 
