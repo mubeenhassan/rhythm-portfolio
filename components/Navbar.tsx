@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../public/logo.png";
 import light_logo from "../public/light-logo.png";
+// @ts-ignore
 import { Link } from "react-scroll";
 import { useTheme } from "next-themes";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -51,7 +52,9 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
                 className={`text-[26px] hover:scale-[1.05] transition-all duration-500`}
               />
             </SheetTrigger>
+            
             <SheetContent>
+              
               <div
                 className={`w-full h-[80%]  mt-[40px] bg-[url('/images/light/globe-light-menu.svg')] bg-cover bg-center dark:bg-[url('/images/dark/globe-dark-menu.svg')] `}
               >

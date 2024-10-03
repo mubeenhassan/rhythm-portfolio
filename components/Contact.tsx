@@ -104,6 +104,7 @@ function Contact() {
               }`}
             ></textarea>
             <SendButton
+            // @ts-ignore
               handleSubmit={handleSubmit}
               isLoading={isLoading}
               setIsLoading={setIsLoading}

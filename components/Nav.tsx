@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Link } from "react-scroll";
 import { navItems } from "@/Data";
 
