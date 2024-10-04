@@ -51,7 +51,6 @@ const VerticalSlider: React.FC<VerticalSliderProps> = ({ changeTheme }) => {
           start: "top top",
           end: () => `+=40%`,
           scrub: 2,
-          markers: true, // Enable markers for debugging
         },
       });
 
