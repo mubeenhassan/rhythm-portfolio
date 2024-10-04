@@ -112,6 +112,13 @@ export const experiences=[
         description:`At Bulk Studio, I was responsible for supportin organization'ssuccess by analyzing the Envato marketplace and implementing unique ideas to enhance the design and development
         of its products.`
     },
+    {
+        data:'September 2015 - November 2017 Last',
+        title:'OLIVINE LIMITED',
+        subtitle:'Full Stack Software Engineer',
+        description:`At Bulk Studio, I was responsible for supportin organization'ssuccess by analyzing the Envato marketplace and implementing unique ideas to enhance the design and development
+        of its products.`
+    },
 ]
 
 export const spaceItems=[
@@ -134,8 +141,8 @@ export const spaceItems=[
 ]
 
 export const settings = {
-    dots: true,
-    slidesToShow: 4, 
+    dots: false,
+    slidesToShow: 6, 
     slidesToScroll: 1,
     autoplay: false,
     arrows: false, 
@@ -146,19 +153,19 @@ export const settings = {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 4, 
+          slidesToShow: 6, 
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3, 
+          slidesToShow: 5, 
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2, 
+          slidesToShow: 3.3, 
         },
       },
       

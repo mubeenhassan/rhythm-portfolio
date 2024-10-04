@@ -1,28 +1,29 @@
 // "use client"
- 
-import * as React from "react"
-import { FaMoon, FaSun } from 'react-icons/fa';
-import { useTheme } from "next-themes"
+
+import * as React from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useTheme } from "next-themes";
 // import iconnight from '../public/images/dark/icon-night.svg'
 // import Image from "next/image";
 
 interface ToggleButtonProps {
   changeTheme: boolean; // changeTheme is a boolean
-  setChangeTheme: React.Dispatch<React.SetStateAction<boolean>>; 
+  setChangeTheme: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({ changeTheme, setChangeTheme }) => {
+const ToggleButton: React.FC<ToggleButtonProps> = ({
+  changeTheme,
+  setChangeTheme,
+}) => {
   const { theme, setTheme } = useTheme();
- 
+
   React.useEffect(() => {
-    
-      setTheme('dark'); 
-    
+    setTheme("dark");
   }, []);
 
   const toggleMode = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-    setChangeTheme(!changeTheme)
+    setTheme(theme === "dark" ? "light" : "dark");
+    setChangeTheme(!changeTheme);
   };
 
   return (
@@ -44,5 +45,3 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({ changeTheme, setChangeTheme
 };
 
 export default ToggleButton;
-
-  
