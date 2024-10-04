@@ -15,37 +15,37 @@ const SendButton: React.FC<SendButtonProps> = ({
   isSent,
   setIsSent,
 }) => {
-
   useEffect(() => {
     let sentTimeout: NodeJS.Timeout;
 
     if (!isLoading && isSent) {
       sentTimeout = setTimeout(() => {
-        setIsSent(false); 
+        setIsSent(false);
       }, 2000);
     }
 
     return () => {
-      clearTimeout(sentTimeout); 
+      clearTimeout(sentTimeout);
     };
   }, [isLoading, isSent, setIsSent]);
 
- 
   return (
     <button
       onClick={handleSubmit}
-      type="button" 
+      type="button"
       className={`relative px-4 py-3 outline-none text-[var(--dark)] dark:text-[var(--light)] bg-[var(--dark-bg)] dark:bg-[var(--light-bg)] text-[16px] font-semibold h-11 w-[180px] rounded transition-all duration-500 hover:scale-[1.03] ${
         isLoading ? "cursor-not-allowed" : ""
       }`}
-      disabled={isLoading} 
+      disabled={isLoading}
     >
       {isLoading ? (
         <div className="absolute inset-0 flex justify-center items-center">
           <div className="animate-spin border-t-2 border-t-[var(--dark)] dark:border-t-[var(--light)] border-solid rounded-full w-5 h-5 p-2"></div>
         </div>
+      ) : isSent ? (
+        "Send"
       ) : (
-        isSent ? "Send" : "Let's work together"
+        "Let's work together"
       )}
     </button>
   );

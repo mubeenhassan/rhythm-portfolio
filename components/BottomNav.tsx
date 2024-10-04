@@ -12,11 +12,11 @@ const Nav: React.FC<NavProps> = () => {
       <ul className={`grid grid-cols-2 md:grid-cols-4  gap-x-7 gap-y-3 `}>
         {navItems.map((item, i) => (
           <li
-            className=" text-[15px] sm:text-[19px] cursor-pointer text-[var(--dark)] dark:text-[var(--light)] transition-all duration-500 hover:scale-[1.07] font-semibold "
+            className=" text-[15px] sm:text-[20px] tracking-wider cursor-pointer text-[var(--dark)] dark:text-[var(--light)] transition-all duration-500 hover:scale-[1.07] font-semibold "
             key={i}
           >
             <Link
-              className="font-semibold font-montreal"
+              className="font-semibold font-bebas"
               to={item.link}
               smooth={true}
               duration={500}

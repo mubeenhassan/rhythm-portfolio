@@ -12,11 +12,11 @@ const Nav: React.FC<NavProps> = ({ otherclass=' '}) => {
       <ul className={`  ${otherclass}`}>
         {navItems.map((item, i) => (
           <li
-            className=" text-[19px] cursor-pointer dark:text-[var(--dark)] transition-all duration-500 hover:scale-[1.07]"
+            className=" text-[19px] cursor-pointer tracking-wider dark:text-[var(--dark)] transition-all duration-500 hover:scale-[1.07]"
             key={i}
           >
             <Link
-              className="font-medium font-montreal"
+              className="font-medium font-bebas"
               to={item.link}
               smooth={true}
               duration={500}
