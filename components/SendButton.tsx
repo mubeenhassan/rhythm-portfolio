@@ -33,7 +33,7 @@ const SendButton: React.FC<SendButtonProps> = ({
     <button
       onClick={handleSubmit}
       type="button"
-      className={`outline-nonetext-[var(--dark)] dark:text-[var(--light)] bg-[var(--dark-bg)] transition-all duration-500 hover:scale-[1.02]  dark:bg-[var(--light-bg)] relative z-[90]  py-[8px] md:py-[12px] px-[20px] md:px-[24px] max-w-[200px] md:max-w-[220px] font-neue-bold w-full text-center flex items-center justify-center cursor-pointer ${
+      className={`outline-none text-[var(--dark)] dark:text-[var(--light)] bg-[var(--dark-bg)] transition-all duration-500 hover:scale-[1.02]  dark:bg-[var(--light-bg)] relative z-[90]  py-[8px] md:py-[12px] px-[20px] md:px-[24px] max-w-[200px] md:max-w-[220px] font-neue-bold w-full text-center flex items-center justify-center cursor-pointer ${
         isLoading ? "cursor-not-allowed" : ""
       }`}
       disabled={isLoading}
