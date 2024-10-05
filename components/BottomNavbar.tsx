@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo from "../public/logo.png";
-import light_logo from "../public/light-logo.png";
+import logo from "../public/logo.svg";
+import light_logo from "../public/logo-light.svg";
 import BottomNav from "./BottomNav";
 
 interface BottomNavbarProps {

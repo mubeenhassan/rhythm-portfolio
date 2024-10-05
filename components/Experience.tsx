@@ -28,17 +28,17 @@ const Experience: React.FC<ExperienceProps> = ({ changeTheme }) => {
       })
 
       tl.to(".expG", {
-        y: 20, // slight vertical movement
-        x: 10, // slight horizontal movement
+        y: 20, 
+        x: 10,
         ease: "power1.out",
       });
     
   }, []);
 
   return (
-    <div className="experience w-full h-auto py-[30px] px-[20px]">
+    <div className="experience w-full overflow-hidden h-auto px-[20px] mt-[84px] md:mt-[120px]">
       <div className="w-full flex flex-col gap-4 items-center justify-center">
-        <div className="w-full mx-auto h-auto flex flex-col justify-center items-center tracking-[2.1vw] relative text-[15vw] md:text-[18vw] font-semibold font-bebas transform scale-y-[1.1] mb-12 text-start text-[var(--light)] dark:text-[var(--dark)]  mt-[70px] lg:mt-10">
+        <div className="w-full mx-auto h-auto mb-[48px] md:mb-[84px] flex flex-col justify-center items-center tracking-[2.1vw] relative text-[21.8vw] ml-[0.4vw] font-semibold font-bebas transform scale-y-[1.1] text-start text-[var(--light)] dark:text-[var(--dark)]">
           <h1 className="relative z-50 expG">EXPERIENCE</h1>
           <h1
             className="absolute expG bottom-4 sm:bottom-[22px] md:bottom-8 lg:bottom-[30px] "
