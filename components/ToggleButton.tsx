@@ -3,8 +3,7 @@
 import * as React from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "next-themes";
-// import iconnight from '../public/images/dark/icon-night.svg'
-// import Image from "next/image";
+import gsap from "gsap";
 
 interface ToggleButtonProps {
   changeTheme: boolean; // changeTheme is a boolean
@@ -20,21 +19,28 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   React.useEffect(() => {
     setTheme("dark");
   }, []);
+  React.useEffect(() => {
+    gsap.to(".iconWrap", {
+      x: changeTheme ? "32px" : "2px",
+      duration: 0.3,
+      ease: "power3.inOut",
+    });
+  }, [changeTheme]);
 
   const toggleMode = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTimeout(() => {
+      setTheme(theme === "dark" ? "light" : "dark");
+    }, 300);
     setChangeTheme(!changeTheme);
   };
 
   return (
     <div
       onClick={toggleMode}
-      className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-500 flex items-center  dark:bg-transparent bg-transparent border-2 border-[var(--light)] dark:border-[var(--dark)] p-[7]`}
+      className={`w-16 h-8 rounded-full cursor-pointer flex items-center bg-transparent border-2 border-[var(--light)] dark:border-[var(--dark)]`}
     >
       <div
-        className={`absolute w-6 h-6 rounded-full flex items-center justify-center ${
-          changeTheme ? "translate-x-1" : "translate-x-8"
-        } transition-all duration-1000 ease-in-out  bg-black dark:bg-white`}
+        className={`w-6 h-6 rounded-full flex items-center justify-center transform iconWrap transition-transform duration-500 ease-in-out bg-black dark:bg-white`}
       >
         {changeTheme ? (
           <FaMoon className={`text-black`} />
