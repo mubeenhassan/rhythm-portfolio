@@ -1,11 +1,18 @@
+"use client";
+
 import { spaceItems } from "@/Data";
 import CountUp from "react-countup";
 import { TiPlus } from "react-icons/ti";
 import Button from "./Button";
+import VisibilitySensor from "react-visibility-sensor";
+import { useState } from "react";
+
 function About() {
+  const [startCounting, setStartCounting] = useState(false);
+
   return (
-    <div className="about w-full px-[30px] py-[90px] ">
-      <div className="w-full flex flex-col gap-7 lg:gap-3 lg:flex-row items-center justify-center py-[60px]">
+    <div className="about w-full px-[30px] mt-[84px] md:mt-[120px] ">
+      <div className="w-full flex flex-col gap-7 lg:gap-3 lg:flex-row items-center justify-center ">
         <div className="basis-[48%] flex flex-col gap-6 px-4 justify-center md:items-center lg:justify-start lg:items-start mb-[40px] lg:mb-0">
           <h1 className="text-[42px] font-bebas font-semibold text-left w-full text-[var(--light)] dark:text-[var(--dark)]">
             About Me
@@ -22,21 +29,40 @@ function About() {
           </p>
           <div className="flex justify-start items-center max-w-[300px] gap-9">
             <div className="flex justify-center items-center gap-1">
-              <CountUp
-                start={0}
-                end={16}
-                duration={2.5}
-                className="text-[60px] font-bebas font-semibold text-[var(--light)] dark:text-[var(--dark)] "
-              ></CountUp>
+              <VisibilitySensor
+                active={!startCounting}
+                onChange={(isVisible: boolean) => {
+                  if (isVisible) {
+                    setStartCounting(true);
+                  }
+                }}
+                delayedCall
+              >
+                <div>
+                  {startCounting ? (
+                    <CountUp
+                      start={0}
+                      end={16}
+                      duration={2}
+                      className="text-[60px] font-bebas font-semibold text-[var(--light)] dark:text-[var(--dark)] "
+                    />
+                  ) : (
+                    <h4 className="text-[60px] font-bebas font-semibold text-[var(--light)] dark:text-[var(--dark)] ">
+                      0
+                    </h4>
+                  )}
+                </div>
+              </VisibilitySensor>
+
               <TiPlus className="text-[21px] font-extrabold text-[var(--light)] dark:text-[var(--dark)] " />
             </div>
             <p className="text-[20px] font-bebas text-[var(--light)] dark:text-[var(--dark)] tracking-wider font-medium">
               Years Experience
             </p>
           </div>
-          <Button/>
+          <Button />
         </div>
-        <div className="basis-[48%] flex justify-center items-center">
+        <div className="basis-[48%] flex justify-center items-center ">
           <div className="p-5">
             <div className="w-[320px] h-[320px] md:w-[450px] md:h-[450px] rounded-full border-2 border-[#dddddd] relative flex justify-center items-center p-8 dark:border-[#191919]">
               <div className="w-[200px] h-[200px] md:w-[290px] md:h-[290px] rounded-full border-2 border-[#dddddd] flex justify-center items-center p-5 dark:border-[#191919]">
@@ -64,6 +90,7 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="certfiStart h-0 w-0 opacity-0"></div>
     </div>
   );
 }

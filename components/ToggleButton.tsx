@@ -32,12 +32,14 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
       className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-500 flex items-center  dark:bg-transparent bg-transparent border-2 border-[var(--light)] dark:border-[var(--dark)] p-[7]`}
     >
       <div
-        className={`absolute w-6 h-6 rounded-full flex items-center justify-center transition-all duration-500 transform translate-x-8  dark:translate-x-1 bg-black dark:bg-white`}
+        className={`absolute w-6 h-6 rounded-full flex items-center justify-center ${
+          changeTheme ? "translate-x-1" : "translate-x-8"
+        } transition-all duration-1000 ease-in-out  bg-black dark:bg-white`}
       >
         {changeTheme ? (
-          <FaSun className="text-yellow-500" />
+          <FaMoon className={`text-black`} />
         ) : (
-          <FaMoon className="text-white" />
+          <FaSun className={`text-white`} />
         )}
       </div>
     </div>
