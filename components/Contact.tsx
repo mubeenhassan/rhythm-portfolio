@@ -56,16 +56,16 @@ function Contact() {
     <div className="contact w-full mx-auto py-14">
       <div className="w-full max-[90%] mx-auto flex flex-col gap-5">
         <div className="max-w-[90%] mx-auto h-auto p-8 md:p-10">
-          <h1 className="text-[25vw] leading-[22vw] md:text-[19vw] font-bebas md:leading-[19.5vw] font-semibold mx-auto tracking-wider font-montreal transform scale-y-[1.1] mb-2 text-start text-[var(--light)] dark:text-[var(--dark)]">
+          <h1 className="text-[25vw] leading-[22vw] md:text-[19vw] font-bebas md:leading-[19vw] font-semibold mx-auto tracking-wider text-start text-[var(--light)] dark:text-[var(--dark)]">
             LET’S GET IN
           </h1>
 
-          <h1 className="text-[24vw] leading-[26vw] font-bebas md:text-[20vw] md:leading-[20.1vw] mx-auto font-montreal transform scale-y-[1.1] font-semibold capitalize relative ">
-            T<span className="font-neue-bold">O</span>OUCH
+          <h1 className="text-[24vw] leading-[26vw] font-bebas md:text-[20vw] md:leading-[20vw] mx-auto font-semibold capitalize relative ">
+            T<span className="font-neue">O</span>UCH
             <Image
               src={face}
               alt=""
-              className="absolute w-[15vw] h-[15vw] md:w-[14vw] md:h-[14vw] top-[6vw] left-[10vw] tracking-wider md:top-[3.4vw] md:left-[7.5vw] cursor-pointer"
+              className="absolute w-[15vw] h-[15vw] md:w-[14vw] md:h-[14vw] top-[6vw] left-[10vw] tracking-wider md:top-[3.8vw] rotate-[2deg] md:left-[7.88vw] cursor-pointer"
             />
           </h1>
         </div>
@@ -78,7 +78,7 @@ function Contact() {
               value={formData.name}
               onChange={handleInputChange}
               name="name"
-              className={`bg-transparent outline-none text-[var(--light)] dark:text-[var(--dark)] border-b w-full py-5 text-[18px] ${
+              className={`bg-transparent outline-none uppercase tracking-wider text-[var(--light)] dark:text-[var(--dark)] border-b w-full py-5 text-[20px] ${
                 errors.name ? "border-[#dc3232]" : "border-gray-700"
               }`}
             />
@@ -88,7 +88,7 @@ function Contact() {
               name="email"
               onChange={handleInputChange}
               value={formData.email}
-              className={`bg-transparent outline-none border-b w-full py-5 text-[18px] ${
+              className={`bg-transparent outline-none uppercase tracking-wider border-b w-full py-5 text-[20px] ${
                 errors.email ? "border-[#dc3232]" : "border-gray-700"
               }`}
             />
@@ -98,7 +98,7 @@ function Contact() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Message"
-              className={`bg-transparent outline-none border-b w-full py-5 text-[18px] resize-none mb-3 ${
+              className={`bg-transparent outline-none uppercase tracking-wider border-b w-full py-5 text-[20px] resize-none mb-3 ${
                 errors.message ? "border-[#dc3232]" : "border-gray-700"
               }`}
             ></textarea>
