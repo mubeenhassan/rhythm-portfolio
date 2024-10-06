@@ -49,7 +49,7 @@ const VerticalSlider: React.FC<VerticalSliderProps> = ({ changeTheme }) => {
         ref={scrollContainerRef}
         className="w-full max-w-[98%] mx-auto md:max-h-[1200px] overflow-y-hidden no-scrollbar relative z-[10]"
       >
-        <div className="bg-gradient-to-b from-transparent to-background absolute inset-0 w-full h-full z-[80] overlaySlides"></div>
+        {/* <div className="bg-gradient-to-b from-transparent to-background absolute inset-0 w-full h-full z-[80] overlaySlides"></div> */}
         {experiences.map((item, index) => (
           <div
             key={index}
