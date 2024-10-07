@@ -63,17 +63,31 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
 
         {/* mobilemenu */}
         <div className="lg:hidden">
-          <GiHamburgerMenu
+          <div
             onClick={() => setShowMenu(true)}
-            className={`text-[26px] hover:scale-[1.05] transition-all duration-500`}
-          />
+            className="relative w-[25px] h-[35px] transition-all duration-500"
+          >
+            <span
+              className={`absolute ${
+                showMenu && "rotate-45"
+              } transition-all duration-300 ease-in-out top-0 left-0 right-0 block w-[25px] h-[2px] bg-foreground mb-[5px]`}
+            ></span>
+            {!showMenu && (
+              <span className="absolute top-[8px] left-0 right-0 block w-[25px] h-[2px] bg-foreground mb-[5px]"></span>
+            )}
+            <span
+              className={`absolute top-[16px] ${
+                showMenu && "-rotate-45 !top-0"
+              } transition-all duration-300 ease-in-out left-0 right-0 block w-[25px] h-[2px] bg-foreground`}
+            ></span>
+          </div>
 
           <div
-            className={`fixed top-0 flex flex-col justify-between transition-all duration-500 ease-in-out overflow-hidden ${
+            className={`fixed top-0 flex flex-col justify-between transition-all delay-100 duration-700 ease-in-out overflow-hidden ${
               showMenu ? "right-0" : "right-[-100%]"
             } bottom-0 bg-background text-foreground z-[999] w-full h-full `}
           >
-            <div className="workBgAnim scale-[0.99] opacity-90 bg-[url('/images/light/globe-light.svg')] bg-cover bg-center bg-no-repeat dark:bg-[url('/images/dark/globe-dark.svg')] absolute w-full h-full inset-0"></div>
+            <div className="workBgAnim scale-[0.99] blur-[2px] z-[-1] opacity-90 bg-[url('/images/light/globe-light.svg')] bg-cover bg-center bg-no-repeat dark:bg-[url('/images/dark/globe-dark.svg')] absolute w-full h-full inset-0"></div>
 
             <div>
               <div className="bg-background relative z-[90] flex items-center justify-between text-foreground px-8 py-3">
@@ -84,12 +98,26 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
                     <Image src={light_logo} alt="logo" priority />
                   )}
                 </div>
-                <IoClose
+                <div
                   onClick={() => setShowMenu(false)}
-                  className={`text-[32px] hover:scale-[1.05] transition-all duration-500`}
-                />
+                  className="relative w-[25px] h-[35px] transition-all duration-500"
+                >
+                  <span
+                    className={`absolute ${
+                      showMenu && "rotate-45"
+                    } transition-all duration-300 ease-in-out top-0 left-0 right-0 block w-[25px] h-[2px] bg-foreground mb-[5px]`}
+                  ></span>
+                  {!showMenu && (
+                    <span className="absolute top-[8px] left-0 right-0 block w-[25px] h-[2px] bg-foreground mb-[5px]"></span>
+                  )}
+                  <span
+                    className={`absolute top-[16px] ${
+                      showMenu && "-rotate-45 !top-0"
+                    } transition-all duration-300 ease-in-out left-0 right-0 block w-[25px] h-[2px] bg-foreground`}
+                  ></span>
+                </div>
               </div>
-              <div className="flex items-center justify-center flex-col gap-5 mt-[10vh]">
+              <div className="flex items-center justify-center flex-col gap-5 mt-[50px]">
                 <nav>
                   <ul className="flex flex-col items-center justify-center gap-8">
                     {navItems.map((item, i) => (
@@ -129,12 +157,11 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, setChangeTheme }) => {
             <div className="mb-[100px]">
               <div className="flex items-center justify-center gap-6 mt-[40px]">
                 {footerIcons.map((icon, i) => (
-                  <a key={i} href={icon.link}>
-                    <div className="flex items-center justify-center py-4 w-[50px] h-[50px] px-4 border-1 text-[23px] tracking-wider border-[0.7px] text-[var(--light)] border-[var(--light)] dark:border-[var(--dark)] dark:text-[var(--dark)] hover:scale-[1.05] transition-all duration-500">
-                      <span className="text-[17px]">{icon.icon}</span>
-                      {/* <p className="font-bebas">{icon.name}</p> */}
+                  <Link key={i} href={icon.link}>
+                    <div className="flex items-center justify-center w-[50px] h-[50px]  border-1 tracking-wider border-[0.7px] text-[var(--light)] border-[var(--light)] dark:border-[var(--dark)] dark:text-[var(--dark)] hover:scale-[1.05] transition-all duration-500">
+                      <span className="text-[22px]">{icon.icon}</span>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div className="w-full flex justify-center items-center mt-[40px] mb-3">

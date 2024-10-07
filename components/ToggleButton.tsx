@@ -1,4 +1,4 @@
-// "use client"
+"use client";
 
 import * as React from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -17,8 +17,11 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   const { theme, setTheme } = useTheme();
 
   React.useEffect(() => {
-    setTheme("dark");
-  }, []);
+    const savedTheme = localStorage.getItem("theme") || "dark"; // Default to dark theme
+    setTheme(savedTheme);
+    setChangeTheme(savedTheme === "dark");
+  }, [setTheme, setChangeTheme]);
+
   React.useEffect(() => {
     gsap.to(".iconWrap", {
       x: changeTheme ? "32px" : "2px",
@@ -29,7 +32,10 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 
   const toggleMode = () => {
     setTimeout(() => {
-      setTheme(theme === "dark" ? "light" : "dark");
+      const newTheme = theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme); // Save to local storage
+      setTheme(newTheme);
+      // setChangeTheme(!changeTheme);
     }, 300);
     setChangeTheme(!changeTheme);
   };

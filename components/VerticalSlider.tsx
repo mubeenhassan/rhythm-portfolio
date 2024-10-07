@@ -8,8 +8,13 @@ import unordered_light from "../public/images/light/unordered-light.svg";
 import { experiences } from "@/Data";
 import { useTheme } from "next-themes";
 
+import "swiper/css";
+import "swiper/css/pagination";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,83 +24,93 @@ interface VerticalSliderProps {
 
 const VerticalSlider: React.FC<VerticalSliderProps> = ({ changeTheme }) => {
   const { theme } = useTheme();
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
+  // const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    if (container && window.innerWidth > 750) {
-      const items = gsap.utils.toArray(container.querySelectorAll(".expCon"));
+  // useEffect(() => {
+  //   const container = scrollContainerRef.current;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: () => `+=40%`,
-          scrub: 2,
-        },
-      });
+  //   if (container && window.innerWidth > 750) {
+  //     const items = gsap.utils.toArray(container.querySelectorAll(".expCon"));
 
-      tl.to(items, {
-        y: "-220%",
-        ease: "none",
-      });
-    }
-  }, []);
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: container,
+  //         start: "top top",
+  //         end: () => `+=40%`,
+  //         scrub: 2,
+  //       },
+  //     });
+
+  //     tl.to(items, {
+  //       y: "-220%",
+  //       ease: "none",
+  //     });
+  //   }
+  // }, []);
 
   return (
-    <div className="h-[110%]">
-      <div
-        ref={scrollContainerRef}
-        className="w-full max-w-[98%] mx-auto md:max-h-[1200px] overflow-y-hidden no-scrollbar relative z-[10]"
-      >
-        {/* <div className="bg-gradient-to-b from-transparent to-background absolute inset-0 w-full h-full z-[80] overlaySlides"></div> */}
-        {experiences.map((item, index) => (
-          <div
-            key={index}
-            className={`w-full expCon max-[95%] flex flex-col justify-center items-center mx-auto`}
-          >
-            <div className="w-full max-[90%] px-4 md:px-[30px] flex gap-3 mx-auto">
-              <>
-                {changeTheme ? (
-                  <div className="flex justify-center items-center flex-col md:ml-12 ml-0">
-                    <Image src={unordered} alt="" />
-                    <div className="h-[300px] bg-foreground  w-[1px] md:h-[230px]" />
-                  </div>
-                ) : (
-                  <div className="flex justify-center items-center flex-col md:ml-12 ml-0">
-                    <Image src={unordered_light} alt="" />
-
-                    <div className="h-[300px] bg-foreground  w-[1px] md:h-[230px]" />
-                  </div>
-                )}
-              </>
+    <div className="">
+      <div className="w-full mx-auto h-[1200px] overflow-hidden relative z-[10]">
+        <Swiper
+          direction={"vertical"}
+          loop
+          className="mySwiper h-full relative"
+          slidesPerView={4}
+        >
+          {experiences.map((item, index) => (
+            <SwiperSlide
+              key={index}
+              className="flex flex-col !h-[300px] overflow-hidden justify-center items-center mx-auto w-full"
+            >
               <div
-                className={`w-full max-w-[80%] md:w-[75%] mx-auto flex flex-col gap-6 md:flex-row max-h-[320px] h-full pb-[10px] pt-0 md:pb-[30px] px-3 ${
-                  index == experiences.length - 1 && "!border-b-[0px]"
-                } border-b-[1px] md:border-b-2 border-b-[#191919]`}
+                className={`w-full h-full expCon flex flex-col justify-center items-center mx-auto`}
               >
-                {/* Left Column */}
-                <div className="w-full md:w-[50%] flex flex-col gap-2 md:gap-3 justify-start items-start mt-0">
-                  <span className="text-gray-600 dark:text-gray-400 text-[16px] md:text-[18px] ">
-                    {item.data}
-                  </span>
-                  <h1 className="text-[24px] md:text-[34px] max-w-[280px] md:max-w-[380px] font-bebas tracking-wide font-semibold text-[var(--light)] dark:text-[var(--dark)]">
-                    {item.title}
-                  </h1>
-                </div>
-                <div className="w-full max-w-[80%] md:w-[50%] gap-2 md:gap-6 flex flex-col justify-start items-start">
-                  <span className="text-[var(--light)] dark:text-[var(--dark)] text-[16px] md:text-[20px] font-medium">
-                    {item.subtitle}
-                  </span>
-                  <p className="text-[var(--light)] dark:text-[var(--dark)] text-[14px] md:text-[15px] line-clamp-4">
-                    {item.description}
-                  </p>
+                <div className="w-full h-full px-4 md:px-[30px] flex mx-auto">
+                  <>
+                    {changeTheme ? (
+                      <div className="flex justify-center items-center flex-col md:ml-12 ml-0">
+                        <Image src={unordered} alt="" />
+                        <div className={`h-[300px] bg-foreground  w-[1px]`} />
+                      </div>
+                    ) : (
+                      <div className="flex justify-center items-center flex-col md:ml-12 ml-0">
+                        <Image src={unordered_light} alt="" />
+
+                        <div className={`h-[300px] bg-foreground  w-[1px]`} />
+                      </div>
+                    )}
+                  </>
+                  <div
+                    className={`w-full  mt-[6px] md:mt-[10px] md:w-[80%] mx-auto flex flex-col max-h-[320px] h-full pb-[30px] md:pb-[50px] px-3`}
+                  >
+                    <div className="flex flex-col  md:flex-row gap-6 ">
+                      <div className="w-full md:w-[50%] flex flex-col gap-2 md:gap-[25px] justify-start items-start">
+                        <span className="text-[#5A5A5A] dark:text-[#B3B3B3] text-[14px] md:text-[14px] ">
+                          {item.data}
+                        </span>
+                        <h1 className="text-[34px] leading-[38px] md:text-[44px] md:leading-[54px] max-w-[280px] md:max-w-[380px] font-bebas font-[700] text-[var(--light)] dark:text-[var(--dark)]">
+                          {item.title}
+                        </h1>
+                      </div>
+                      <div className="w-full md:w-[50%] gap-2 md:gap-[40px] flex flex-col justify-start items-start">
+                        <span className="text-[var(--light)] dark:text-[var(--dark)] text-[16px] leading-[24px] md:text-[20px] md:leading-[30px] font-[400]">
+                          {item.subtitle}
+                        </span>
+                        <p className="text-[#5A5A5A] dark:text-[#B3B3B3] text-[16px] leading-[24px] md:text-[20px] md:leading-[30px] line-clamp-4">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="h-[1px] md:h-[2px] w-full bg-[#454545] dark:bg-[#666666] mt-auto"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </SwiperSlide>
+          ))}
+          <div className="bg-gradient-to-b from-transparent to-background absolute bottom-0  left-0 right-0 w-full h-[520px] z-[80] overlaySlides"></div>
+        </Swiper>
       </div>
     </div>
   );

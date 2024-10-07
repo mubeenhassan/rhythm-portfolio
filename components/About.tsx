@@ -73,8 +73,8 @@ function About() {
                   {spaceItems.map((item, i) => (
                     <div
                       key={i}
-                      className={`absolute w-[60px] h-[60px] text-[10px] font-bebas font-medium md:text-[17px] md:w-[95px] md:h-[95px] text-[var(--light)] dark:text-[var(--dark)] border-2 border-[#dddddd] dark:border-[#191919] rounded-full text-center flex justify-center items-center ${
-                        i === 0 && "top-[0px] left-10 md:top-[0px] md:left-9"
+                      className={`absolute w-[60px] h-[60px] text-[10px] font-bebas font-medium md:text-[17px] md:w-[95px] md:h-[95px] text-[var(--light)] dark:text-[var(--dark)] border-2 border-[#dddddd] dark:border-[#191919] bg-background rounded-full text-center flex justify-center items-center ${
+                        i === 0 && "top-[0px] left-10 md:top-[30px] md:left-2"
                       } ${i === 1 && "top-10 right-0 md:top-9 md:right-0"} ${
                         i === 2 && "bottom-3 left-5 md:bottom-0 md:left-7"
                       } ${
@@ -83,7 +83,11 @@ function About() {
                     >
                       {item.tilte}
                     </div>
+
                   ))}
+                  <div className="top-[-10px] left-[150px] md:top-[-15px] md:left-[200px] absolute w-[25px] h-[25px] md:w-[30px] md:h-[30px] border-2 border-[#dddddd] dark:border-[#191919] bg-background rounded-full"></div>
+                  <div className="top-[150px] left-[50px] md:top-[250px] md:left-[70px] absolute w-[25px] h-[25px] md:w-[30px] md:h-[30px] border-2 border-[#dddddd] dark:border-[#191919] bg-background rounded-full"></div>
+                  <div className="bottom-[50px] right-[18px] md:bottom-[80px] md:right-[25px] absolute w-[25px] h-[25px] md:w-[30px] md:h-[30px] border-2 border-[#dddddd] dark:border-[#191919] bg-background rounded-full"></div>
                 </div>
               </div>
             </div>

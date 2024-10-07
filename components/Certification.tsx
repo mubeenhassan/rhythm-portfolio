@@ -42,9 +42,9 @@ const Certification: React.FC<CertificationProps> = ({ changeTheme }) => {
     );
   }, []);
   return (
-    <div className="w-full px-[30px]  pt-[150px] md:pt-[120px]  mx-auto certifacesWrap">
-      <div className="w-full max-w-[85%] flex flex-col mx-auto gap-5 md:gap-10">
-        <div className="w-full flex justify-between items-start p-3">
+    <div className="w-full  pt-[150px] md:pt-[120px]  mx-auto certifacesWrap">
+      <div className="w-full md:max-w-[85%] flex flex-col mx-auto gap-5 md:gap-10">
+        <div className="w-full px-[30px] flex justify-between items-start md:px-3 p-3">
           <Image
             src={star}
             alt=""
@@ -66,7 +66,7 @@ const Certification: React.FC<CertificationProps> = ({ changeTheme }) => {
         <div className="mx-auto max-w-[99%]">
           <Slider
             {...settings}
-            className="w-[95%]  mx-auto flex justify-center items-center text-center gap-[16px] cursor-pointer"
+            className="w-full md:w-[95%]  mx-auto flex justify-center items-center text-center gap-[16px] cursor-pointer"
           >
             {certifications.map((item, i) => (
               <Image
@@ -78,7 +78,7 @@ const Certification: React.FC<CertificationProps> = ({ changeTheme }) => {
             ))}
           </Slider>
         </div>
-        <div className="w-full flex justify-between items-start p-3">
+        <div className="w-full px-[30px] flex justify-between items-start md:px-3 p-3">
           <Image
             src={star}
             alt=""

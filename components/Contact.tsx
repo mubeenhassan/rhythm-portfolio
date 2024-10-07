@@ -61,11 +61,11 @@ function Contact() {
           </h1>
 
           <h1 className="text-[24vw] leading-[26vw] font-bebas md:text-[20vw] md:leading-[20vw] mx-auto font-semibold capitalize relative ">
-            T<span className="font-neue">O</span>UCH
+            T<span className="font-neue font-[100]">O</span>UCH
             <Image
               src={face}
               alt=""
-              className="absolute w-[15vw] h-[15vw] md:w-[14vw] md:h-[14vw] top-[6vw] left-[10vw] tracking-wider md:top-[3.8vw] rotate-[2deg] md:left-[7.88vw] cursor-pointer"
+              className="absolute w-[14vw] h-[14vw] md:w-[14vw] md:h-[14vw] top-[7.9vw] left-[11vw] tracking-wider md:top-[3.2vw] rotate-[2deg] md:left-[7.88vw] cursor-pointer"
             />
           </h1>
         </div>

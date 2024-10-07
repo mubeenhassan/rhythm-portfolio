@@ -53,7 +53,7 @@ const Skills: React.FC<SkillsProps> = ({ changeTheme }) => {
           
           </div>
         </div>
-        <div className="basis-[50%] w-full flex justify-center px-[30px] md:px-0 items-center mx-auto">
+        <div className="basis-[50%] -mt-[30px] md:mt-0 w-full flex justify-center px-[30px] md:px-0 items-center mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-3">
             {skillsItems.map((skill, i) => {
               return (

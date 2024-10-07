@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 import VerticalSlider from "./VerticalSlider";
 import { useTheme } from "next-themes";
-
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -17,22 +16,30 @@ const Experience: React.FC<ExperienceProps> = ({ changeTheme }) => {
   const { theme } = useTheme();
 
   useEffect(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.experience',
-          start: "top 0",
-          end: "+=500px",
-          scrub: 1, 
-          // markers:true
-        },
-      })
+    gsap.to(".expG", {
+      opacity: 1,
+      ease: "bounce.in",
+      duration: 0.4,
+      delay: 0,
+      y: 0,
+      x: 0,
+      stagger: 0.01,
+    });
 
-      tl.to(".expG", {
-        y: 20, 
-        x: 10,
-        ease: "power1.out",
-      });
-    
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".experience",
+        start: "top 0",
+        end: "+=500px",
+        scrub: 1,
+      },
+    });
+
+    tl.to(".expG", {
+      y: 20,
+      x: 10,
+      ease: "power1.out",
+    });
   }, []);
 
   return (
@@ -46,7 +53,7 @@ const Experience: React.FC<ExperienceProps> = ({ changeTheme }) => {
               changeTheme
                 ? {
                     WebkitTextStroke: "2px #191919",
-                    color: "#030712",
+                    color: "#000000",
                   }
                 : {
                     WebkitTextStroke: "2px #dddddd",
@@ -62,7 +69,7 @@ const Experience: React.FC<ExperienceProps> = ({ changeTheme }) => {
               changeTheme
                 ? {
                     WebkitTextStroke: "2px #191919",
-                    color: "#030712",
+                    color: "#000000",
                   }
                 : {
                     WebkitTextStroke: "2px #dddddd",
